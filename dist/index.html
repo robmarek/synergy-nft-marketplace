@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#05070d">
+  <meta name="description" content="Explore digital collectibles from across the Synergy Network ecosystem.">
+  <title>Synergy NFT Marketplace</title>
+  <link rel="icon" href="assets/synergy-mark.png" type="image/png">
+  <link rel="preload" href="assets/lexend.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="market.css">
+  <script type="module" src="market.js"></script>
+</head>
+<body>
+  <a class="skip" href="#market">Skip to marketplace</a>
+  <header class="topbar">
+    <div class="shell header-inner">
+      <a class="brand" href="#explore" aria-label="Synergy NFT Marketplace home">
+        <img src="assets/synergy-mark.png" width="38" height="38" alt="">
+        <span><img class="brand-wordmark" src="assets/synergy-wordmark.png" width="155" height="20" alt=""><small>NFT MARKETPLACE</small></span>
+      </a>
+      <nav class="navigation" aria-label="Marketplace">
+        <a href="#explore" data-view="explore">Explore</a>
+        <a href="#collections" data-view="collections">Collections</a>
+        <a href="#activity" data-view="activity">Activity</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button header-saved" type="button" data-action="saved" aria-label="Saved NFTs" title="Saved NFTs"><i data-icon="heart"></i></button>
+        <button class="button wallet-button" type="button" data-action="wallet"><i data-icon="wallet"></i><span id="wallet-label">Connect Wallet</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <img class="hero-image" src="assets/genesis.jpg" alt="" fetchpriority="high">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="signal"></span> FEATURED COLLECTION</p>
+        <h1 id="hero-heading">Genesis <span>Relics</span></h1>
+        <p class="hero-description">Artifacts from the first era of Synergy. Discover the relics, sentinels, and worlds that started it all.</p>
+        <button class="button primary hero-button" type="button" data-action="featured">View collection <i data-icon="arrow-up-right"></i></button>
+      </div>
+    </section>
+
+    <section class="market" id="market" aria-labelledby="market-heading" tabindex="-1">
+      <div class="section-heading">
+        <div>
+          <h2 id="market-heading">Explore NFTs</h2>
+          <p id="market-description">Discover digital art, game assets, and collectibles on Synergy.</p>
+        </div>
+        <span class="network-tag"><span class="signal"></span> Marketplace preview</span>
+      </div>
+      <div class="toolbar" id="toolbar">
+        <div class="filters" aria-label="Categories" id="filters">
+          <button type="button" class="filter" aria-pressed="true" data-category="All NFTs"><i data-icon="grid"></i>All NFTs</button>
+          <button type="button" class="filter" aria-pressed="false" data-category="Gaming"><i data-icon="gamepad"></i>Gaming</button>
+          <button type="button" class="filter" aria-pressed="false" data-category="Digital Art"><i data-icon="image"></i>Digital Art</button>
+          <button type="button" class="filter" aria-pressed="false" data-category="Collectibles"><i data-icon="layers"></i>Collectibles</button>
+        </div>
+        <div class="query">
+          <label class="search"><i data-icon="search"></i><span class="sr-only">Search NFTs</span><input id="search" type="search" placeholder="Search NFTs" autocomplete="off"></label>
+          <label class="sort"><i data-icon="sort"></i><span class="sr-only">Sort NFTs</span>
+            <select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="new">Recently added</option></select><i data-icon="chevron-down"></i>
+          </label>
+        </div>
+      </div>
+      <div id="view-content"></div>
+      <p class="sr-only" id="view-status" role="status"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <a class="brand footer-brand" href="#explore"><img src="assets/synergy-mark.png" width="29" height="29" alt=""><span><strong>Synergy Network</strong><small>NFT MARKETPLACE</small></span></a>
+      <span class="footer-note">Preview catalog · SNRG amounts are simulated.</span>
+      <div class="footer-links"><a href="https://synergy-network.io/" target="_blank" rel="noopener noreferrer">Synergy Network <i data-icon="arrow-up-right"></i></a><a href="https://brand.synergy-network.io/" target="_blank" rel="noopener noreferrer">Brand kit <i data-icon="arrow-up-right"></i></a></div>
+    </div>
+  </footer>
+
+  <dialog id="modal" aria-labelledby="dialog-title">
+    <button class="icon-button modal-close" data-action="close" type="button" aria-label="Close dialog"><i data-icon="close"></i></button>
+    <div id="modal-content"></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>
