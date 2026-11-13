@@ -23,10 +23,11 @@
         <a href="#explore" data-view="explore">Explore</a>
         <a href="#collections" data-view="collections">Collections</a>
         <a href="#activity" data-view="activity">Activity</a>
+        <a href="#offers" data-view="offers">Offers</a>
       </nav>
       <div class="header-actions">
         <button class="icon-button header-saved" type="button" data-action="saved" aria-label="Saved NFTs" title="Saved NFTs"><i data-icon="heart"></i></button>
-        <button class="button wallet-button" type="button" data-action="wallet"><i data-icon="wallet"></i><span id="wallet-label">Connect Wallet</span></button>
+        <button class="button wallet-button" type="button" data-action="wallet"><i data-icon="wallet"></i><span id="wallet-label">Demo Wallet</span></button>
       </div>
     </div>
   </header>
@@ -45,11 +46,12 @@
     <section class="market" id="market" aria-labelledby="market-heading" tabindex="-1">
       <div class="section-heading">
         <div>
-          <h2 id="market-heading">Explore NFTs</h2>
+          <h2 id="market-heading" tabindex="-1">Explore NFTs</h2>
           <p id="market-description">Discover digital art, game assets, and collectibles on Synergy.</p>
         </div>
-        <span class="network-tag"><span class="signal"></span> Marketplace preview</span>
+        <span class="network-tag"><span class="signal"></span> Demo marketplace</span>
       </div>
+      <div id="collection-summary" hidden></div>
       <div class="toolbar" id="toolbar">
         <div class="filters" aria-label="Categories" id="filters">
           <button type="button" class="filter" aria-pressed="true" data-category="All NFTs"><i data-icon="grid"></i>All NFTs</button>
@@ -59,6 +61,9 @@
         </div>
         <div class="query">
           <label class="search"><i data-icon="search"></i><span class="sr-only">Search NFTs</span><input id="search" type="search" placeholder="Search NFTs" autocomplete="off"></label>
+          <label class="sort listing-status"><i data-icon="layers"></i><span class="sr-only">Listing status</span>
+            <select id="listing-status"><option value="all">Any status</option><option value="listed">Listed</option><option value="unlisted">Unlisted</option></select><i data-icon="chevron-down"></i>
+          </label>
           <label class="sort"><i data-icon="sort"></i><span class="sr-only">Sort NFTs</span>
             <select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="new">Recently added</option></select><i data-icon="chevron-down"></i>
           </label>
@@ -72,7 +77,7 @@
   <footer class="footer">
     <div class="shell footer-inner">
       <a class="brand footer-brand" href="#explore"><img src="assets/synergy-mark.png" width="29" height="29" alt=""><span><strong>Synergy Network</strong><small>NFT MARKETPLACE</small></span></a>
-      <span class="footer-note">Preview catalog · SNRG amounts are simulated.</span>
+      <span class="footer-note">Demo marketplace · SNRG amounts are simulated.</span>
       <div class="footer-links"><a href="https://synergy-network.io/" target="_blank" rel="noopener noreferrer">Synergy Network <i data-icon="arrow-up-right"></i></a><a href="https://brand.synergy-network.io/" target="_blank" rel="noopener noreferrer">Brand kit <i data-icon="arrow-up-right"></i></a></div>
     </div>
   </footer>
