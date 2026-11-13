@@ -289,3 +289,70 @@ dialog::backdrop { background: #02040bd9; backdrop-filter: blur(5px); }
   .detail-activity { padding: 12px 14px 18px; }
   .modal-art { max-height: 235px; }
 }
+
+.community-panel { padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); min-width: 0; }
+.community-panel h3 { margin: 0 0 8px; font-size: 17px; font-weight: 600; }
+.community-panel h4 { margin: 16px 0 8px; font-size: 14px; }
+.community-panel p, .community-creator p { color: var(--muted); margin: 0 0 12px; font-size: 13px; }
+.community-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.community-creator .card-info { padding: 15px; }
+.community-creator h3 { margin: 0; }
+.text-link { color: #82ffc0; font-size: 13px; }
+.text-link:hover { text-decoration: underline; }
+.discovery-panel, .watchlist-panel { margin-block: 16px; }
+.studio-grid, .wallet-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 16px; }
+.report-panel { grid-column: 1 / -1; }
+.studio-grid .listing-form { max-width: 490px; }
+.listing-form :is(select,textarea) { width: 100%; padding: 10px; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; font: inherit; }
+.studio-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 12px; background: var(--surface); border-radius: 8px; }
+.studio-stats dt { font-size: 11px; color: var(--muted); }
+.studio-stats dd { margin: 4px 0 0; }
+.studio-list { display: grid; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.studio-list li { display: grid; justify-items: start; gap: 5px; background: var(--surface); padding: 11px; border-radius: 7px; overflow-wrap: anywhere; }
+.studio-list span, .studio-list small { color: var(--muted); font-size: 12px; }
+.studio-list .button, .detail-tools .button { min-height: 32px; font-size: 11px; }
+.studio-list p { margin: 0; }
+.studio-error { color: #ffc4c8 !important; }
+.wallet-status, .release-status { margin-top: 12px !important; }
+.release-status { padding: 10px; background: #12221c; border: 1px solid #2a4739; border-radius: 7px; color: #b4dfca !important; }
+.rarity-select { padding-left: 10px; }
+.rarity-select select { width: 91px; }
+.trait-tags, .detail-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+.trait-tags span { padding: 3px 7px; border: 1px solid #2f4562; border-radius: 6px; color: #c2d7f6; font-size: 11px; }
+.modal-inner .creator-note { font-size: 11px; margin: 8px 0 0; }
+.detail-tools { border-top: 1px solid var(--line); margin-top: 13px; padding-top: 10px; }
+.modal-inner .integrity-result { color: #a2dfc1; font-size: 11px; margin: 9px 0 0; overflow-wrap: anywhere; }
+.integrity-result span { display: block; }
+.alert-hit { color: #71ffae; }
+.toolbar .query { flex-wrap: wrap; }
+@media (max-width: 1090px) {
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .toolbar .query { justify-content: start; }
+}
+@media (max-width: 820px) {
+  .navigation { gap: 13px; }
+}
+@media (max-width: 680px) {
+  .header-inner { grid-template-columns: 1fr auto; grid-template-rows: 58px 40px; gap: 0 8px; }
+  .navigation { grid-column: 1 / -1; grid-row: 2; gap: clamp(10px, 4vw, 25px); }
+  .header-actions { grid-column: 2; grid-row: 1; }
+  .wallet-button { min-height: 35px; padding-inline: 9px; font-size: 11px; }
+  .wallet-panel, .studio-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 370px) {
+  .rarity-select select { width: 75px; }
+  .listing-status select { width: 77px; }
+  .sort:not(.rarity-select):not(.listing-status) select { width: 105px; }
+  .navigation a { font-size: 12px; }
+}
+.transaction-preview { max-width: 510px; }
+#synergy-wallet > a { color: #82ffc0; text-decoration: underline; text-underline-offset: 3px; }
+#synergy-wallet > p { overflow-wrap: anywhere; }
+
+.collection-summary-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 620px) {
+  .collection-summary-cover { max-height: none; }
+  .collection-summary-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.creator-profile { max-width: 690px; }
+.community-creator h3 a:hover { color: #82ffc0; }

@@ -1,10 +1,15 @@
-function collectionDetails(collection, items, featured, positions) {
+function collectionDetails(collection, items, featured, positions, events) {
   const members = items.filter((item) => item.collection === collection.name);
   const prices = members
     .map((item) => positions[item.id]?.price)
     .filter((price) => Number.isSafeInteger(price) && price > 0);
 
+  const memberIds = new Set(members.map(({ id }) => id));
+  const sales = events.filter(({ id, type }) => memberIds.has(id) && ['Purchased', 'Offer accepted'].includes(type));
+
   return {
+    sales: sales.length,
+    volume: sales.reduce((total, { amount }) => total + amount, 0),
     cover: collection.name === featured.name ? featured.image : members[0]?.image,
     total: members.length,
     listed: prices.length,
@@ -23,13 +28,13 @@ function priceLabel(floor, formatAmount) {
   return floor === null ? '—' : formatAmount(floor);
 }
 
-export function renderCollections({ collections, items, featured, positions, collectionHash, formatAmount, icon }) {
+export function renderCollections({ collections, items, featured, positions, collectionHash, formatAmount, icon, events = [] }) {
   if (!collections.length) {
     return `<div class="empty">${icon('layers')}<h3>No collections yet</h3><p>Collections will appear here as they’re added.</p></div>`;
   }
 
   const cards = collections.map((collection) => {
-    const details = collectionDetails(collection, items, featured, positions);
+    const details = collectionDetails(collection, items, featured, positions, events);
     const hash = collectionHash(collection.name);
     const cover = details.cover
       ? `<img class="card-art" src="${details.cover}" alt="" loading="lazy">`
@@ -55,8 +60,8 @@ export function renderCollections({ collections, items, featured, positions, col
   return `<div class="grid collections-grid">${cards.join('')}</div>`;
 }
 
-export function renderCollectionSummary({ collection, items, featured, positions, formatAmount }) {
-  const details = collectionDetails(collection, items, featured, positions);
+export function renderCollectionSummary({ collection, items, featured, positions, formatAmount, events = [] }) {
+  const details = collectionDetails(collection, items, featured, positions, events);
   const cover = details.cover
     ? `<img class="collection-summary-cover" src="${details.cover}" alt="">`
     : '';
@@ -67,6 +72,8 @@ export function renderCollectionSummary({ collection, items, featured, positions
       ${stat('NFTs', details.total)}
       ${stat('Listed', details.listed)}
       ${stat('Floor price', priceLabel(details.floor, formatAmount))}
+      ${stat('Recent sales', details.sales)}
+      ${stat('Recent volume', formatAmount(details.volume))}
     </dl>
     ${cover}
   </div>`;
