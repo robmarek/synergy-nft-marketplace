@@ -65,6 +65,7 @@ try {
   }));
   writeFileSync(join(builder, 'vite.config.js'), `export default {
     base: './', publicDir: false,
+    define: { 'process.env.NODE_ENV': JSON.stringify('production') },
     build: {
       sourcemap: false, license: true,
       lib: { entry: 'entry.jsx', formats: ['es'], fileName: 'wallet', cssFileName: 'wallet' },
